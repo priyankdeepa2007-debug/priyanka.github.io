@@ -1,0 +1,534 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nature's Embrace Weddings - Timeless nature-inspired wedding planning in Chennai, India.">
+    <title>Our Process | Nature's Embrace Weddings</title>
+    make it responsive webpage
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sage: #8A9A8E;
+            --cream: #F5F0E8;
+            --earth: #5C4634;
+            --soft-green: #A8B5A2;
+            --dark-earth: #3F2A1E;
+            --light-gray: #F8F6F2;
+            --sunset-primary: #D4A574;
+        }
+        
+        /* BASE RESET & MOBILE-FIRST */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: var(--light-gray);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        
+
+        
+
+        
+
+        
+
+        
+
+        /* CONTAINER SYSTEM */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* TYPOGRAPHY RESPONSIVE */
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+        p { font-size: clamp(0.95rem, 2.5vw, 1.15rem); }
+
+        /* NAVIGATION - FIXED & RESPONSIVE */
+        
+        
+        
+       
+
+        /* HERO SECTION */
+        .process-hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('df.png') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 120px 0 80px;
+        }
+         
+        .hero-content {
+            max-width: min(90vw, 800px);
+        }
+
+        .hero-content p {
+            max-width: 650px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: var(--earth);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+        
+        .intro-text {
+            text-align: center;
+            color: #444;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* PROCESS CARDS */
+        .process-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .process-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .process-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .process-image {
+            height: clamp(200px, 30vw, 280px);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.95);
+            color: var(--earth);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .process-content {
+            padding: clamp(24px, 5vw, 45px);
+        }
+
+        /* CLOSING SECTION */
+        .closing {
+            background: linear-gradient(135deg, var(--sunset-primary) 0%, #B08968 50%, #8A7357 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .closing h2 {
+            max-width: 90%;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .closing p {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+        }
+
+        /* BUTTON */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: clamp(14px, 3vw, 18px) clamp(32px, 6vw, 48px);
+            background: rgba(255,255,255,0.95);
+            color: var(--earth);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .btn:hover {
+            background: var(--soft-green);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark-earth);
+            color: #ccc;
+            text-align: center;
+            padding: clamp(60px, 15vw, 100px) 20px 40px;
+        }
+        
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 6vw, 2.2rem);
+            color: #eee;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .footer-tagline {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-copyright {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* RESPONSIVE BREAKPOINTS */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 32px;
+            }
+            
+            .hamburger {
+                display: none;
+            }
+            
+            .nav-links {
+                position: static !important;
+                flex-direction: row;
+                width: auto;
+                height: auto;
+                background: none;
+                padding: 0;
+                box-shadow: none;
+                right: auto;
+            }
+            
+            .nav-links a {
+                font-size: 1rem;
+                padding: 8px 0;
+            }
+            
+            .section {
+                padding: 100px 0;
+            }
+            
+            .process-container {
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                gap: 2.5rem;
+                max-width: none;
+            }
+            
+            .closing {
+                padding: 120px 32px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+            
+            .process-container {
+                grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+                gap: 3rem;
+            }
+            
+            .process-content {
+                padding: 45px 40px 50px;
+            }
+            
+            .section {
+                padding: 120px 0;
+            }
+        }
+
+        /* SMOOTH SCROLLING */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* PERFORMANCE */
+        .process-image, .process-card {
+            will-change: transform;
+            contain: layout style;
+        }
+    
+        /* ===== RESPONSIVE NAVBAR ===== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(250,247,242,0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201,169,110,0.2);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: #1a1a18;
+            text-decoration: none;
+            z-index: 1001;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 36px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            color: #8a8070;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #1a1a18;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1001;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #1a1a18;
+            border-radius: 2px;
+            transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+            transform-origin: center;
+        }
+
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 18px 24px; }
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: min(300px, 80vw);
+                height: 100vh;
+                background: rgba(250,247,242,0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                transition: right 0.4s cubic-bezier(0.4,0,0.2,1);
+                box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+            }
+            .nav-links.open { right: 0; }
+            .nav-links li a { font-size: 0.85rem; letter-spacing: 0.2em; }
+        }
+
+        </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+        <div class="logo">NatureWeddings</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">ABOUT</a></li>
+            <li><a href="weddings.html">WEDDINGS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="login.html">LOGIN</a></li>
+        </ul>
+    </nav>
+</header>
+    
+    <!-- Hero Section -->
+    <div  class="process-hero">
+        <div class="hero-content container">
+            <h1>Our Wedding Process</h1>
+            <p>Thoughtful design and meticulous planning where every element—venue, décor, florals, and lighting—is curated to reflect natural elegance and your unique love story.</p>
+        </div>
+    </div>
+
+    <!-- Introduction -->
+    <section class="section" style="background-color: var(--cream);">
+        <div class="container">
+            <h2 class="section-title">Nature-Inspired Elegance</h2>
+            <p class="section-subtitle">A nature-inspired wedding embraces the beauty, serenity, and authenticity of the natural world.</p>
+            <p class="intro-text">
+                Lush gardens, enchanting forests, pristine beaches, or open meadows—our weddings focus on organic elements, soft color palettes, and timeless simplicity.
+            </p>
+        </div>
+    </section>
+
+    <!-- Process Steps -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Proven Process</h2>
+            <p class="section-subtitle">Four seamless phases designed to bring your vision to life with effortless sophistication.</p>
+            
+            <div class="process-container">
+                <!-- Step 01 -->
+                <div class="process-card">
+                    <div class="process-image" style="background-image: url('fave.png');">
+                        <div class="step-number">01</div>
+                    </div>
+                    <div class="process-content">
+                        <h3>Discovery Consultation</h3>
+                        <p>We begin with an intimate consultation to understand your wedding vision, style, budget, and dream location. Our expertise guides your ideas to reality.</p>
+                    </div>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="process-card">
+                    <div class="process-image" style="background-image: url('gf.png');">
+                        <div class="step-number">02</div>
+                    </div>
+                    <div class="process-content">
+                        <h3>Bespoke Planning & Design</h3>
+                        <p>Creative curation of every detail—from stunning venues and organic florals to sophisticated décor and lighting that celebrates your romance.</p>
+                    </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="process-card">
+                    <div class="process-image" style="background-image: url('kk.png');">
+                        <div class="step-number">03</div>
+                    </div>
+                    <div class="process-content">
+                        <h3>Flawless Execution</h3>
+                        <p>Expert coordination ensuring seamless delivery. From setup to farewell, we exceed expectations every moment.</p>
+                    </div>
+                </div>
+
+                <!-- Step 04 - FIXED POSITION & COMPLETE CONTENT -->
+                <div class="process-card">
+                    <div class="process-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiLU781xlR96CR0BE-9rMWPEBhvCoTxt4kqA&s');">
+                        <div class="step-number">04</div>
+                    </div>
+                    <div class="process-content">
+                        <h3>Customized Experience Design</h3>
+                        <p>Personal story sharing: How you met, shared values, favorite nature memories. Mood board creation with venue preferences and lifestyle assessment for your perfect nature-inspired celebration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Section -->
+    <section class="closing">
+        <div class="container">
+            <h2>Your satisfaction is at the heart of everything we do.</h2>
+            <p>We work closely with you to understand your dreams and bring them to life, creating weddings that are breathtakingly beautiful, deeply meaningful, and utterly unforgettable.</p>
+            <a href="weddings.html" class="btn">Explore Our Work</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <span class="footer-brand">Nature's Embrace</span>
+            <p class="footer-tagline">Timeless Nature-Inspired Weddings • Chennai, India</p>
+            <p class="footer-copyright">© 2026 Nature's Embrace Weddings. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
