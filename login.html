@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login – Nature Weddings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #faf7f2;
+            --dark: #1a1a18;
+            --sage: #7a8c6e;
+            --gold: #c9a96e;
+            --muted: #8a8070;
+            --border: #e0d9ce;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        .login-wrapper {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 73px;
+        }
+
+        .login-image {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .login-image .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26,26,24,0.35) 0%, rgba(122,140,110,0.2) 100%);
+        }
+
+        .image-quote {
+            position: absolute;
+            bottom: 60px;
+            left: 50px;
+            right: 50px;
+            color: #fff;
+        }
+
+        .image-quote p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.5;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+
+        .image-quote span {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            margin-top: 14px;
+            opacity: 0.85;
+        }
+
+        .leaf-deco {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            opacity: 0.6;
+        }
+
+        .login-form-panel {
+            width: 480px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 64px;
+            background: var(--cream);
+        }
+
+        .form-inner {
+            width: 100%;
+            max-width: 360px;
+            animation: fadeUp 0.7s ease both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            color: var(--sage);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .form-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .form-title em {
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        .form-subtitle {
+            font-size: 0.78rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 44px;
+        }
+
+        .divider {
+            width: 48px;
+            height: 1px;
+            background: var(--gold);
+            margin-bottom: 36px;
+        }
+
+        .field-group {
+            margin-bottom: 22px;
+        }
+
+        .field-group label {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .field-group input {
+            width: 100%;
+            padding: 14px 18px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: var(--dark);
+            outline: none;
+            transition: border-color 0.25s, box-shadow 0.25s;
+        }
+
+        .field-group input::placeholder {
+            color: #c5bdb4;
+        }
+
+        .field-group input:focus {
+            border-color: var(--sage);
+            box-shadow: 0 0 0 3px rgba(122,140,110,0.1);
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .remember input[type="checkbox"] {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border: 1px solid var(--border);
+            background: #fff;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+            transition: border-color 0.2s;
+        }
+
+        .remember input[type="checkbox"]:checked {
+            background: var(--sage);
+            border-color: var(--sage);
+        }
+
+        .remember input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 9px;
+            color: #fff;
+        }
+
+        .remember span {
+            font-size: 0.72rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+
+        .forgot-link {
+            font-size: 0.72rem;
+            color: var(--sage);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+
+        .forgot-link:hover { color: var(--dark); }
+
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            background: var(--dark);
+            color: var(--cream);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.15s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-login::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--sage);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .btn-login:hover::after { transform: scaleX(1); }
+
+        .btn-login span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .or-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .or-divider::before,
+        .or-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .or-divider span {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            color: var(--muted);
+        }
+
+        .btn-google {
+            width: 100%;
+            padding: 14px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--dark);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: border-color 0.25s, box-shadow 0.25s;
+        }
+
+        .btn-google:hover {
+            border-color: var(--sage);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .btn-google svg { width: 18px; height: 18px; }
+
+        .signup-prompt {
+            text-align: center;
+            margin-top: 36px;
+            font-size: 0.72rem;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+        }
+
+        .signup-prompt a {
+            color: var(--sage);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-prompt a:hover { color: var(--dark); }
+
+        .floral-accent {
+            position: absolute;
+            top: 90px;
+            right: 30px;
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        .success-msg {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: rgba(122,140,110,0.1);
+            border: 1px solid rgba(122,140,110,0.3);
+            color: var(--sage);
+            font-size: 0.78rem;
+            letter-spacing: 0.06em;
+            line-height: 1.6;
+            margin-top: 16px;
+        }
+
+        .error-msg {
+            display: none;
+            font-size: 0.7rem;
+            color: #b85c5c;
+            letter-spacing: 0.05em;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .login-image { display: none; }
+            .login-form-panel { width: 100%; padding: 60px 32px; }
+            
+        }
+    
+        /* ===== RESPONSIVE NAVBAR ===== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(250,247,242,0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201,169,110,0.2);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: #1a1a18;
+            text-decoration: none;
+            z-index: 1001;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 36px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            color: #8a8070;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #1a1a18;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1001;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #1a1a18;
+            border-radius: 2px;
+            transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+            transform-origin: center;
+        }
+
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 18px 24px; }
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: min(300px, 80vw);
+                height: 100vh;
+                background: rgba(250,247,242,0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                transition: right 0.4s cubic-bezier(0.4,0,0.2,1);
+                box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+            }
+            .nav-links.open { right: 0; }
+            .nav-links li a { font-size: 0.85rem; letter-spacing: 0.2em; }
+        }
+
+        
+        @media (max-width: 480px) {
+            .login-form-panel { padding: 50px 20px; }
+            .form-title { font-size: 2.4rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+        <nav class="navbar">
+        <div class="logo">NatureWeddings</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">ABOUT</a></li>
+            <li><a href="weddings.html">WEDDINGS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="login.html" class="active">LOGIN</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="login-wrapper">
+
+    <div class="login-image">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Nature wedding ceremony">
+        <div class="image-overlay"></div>
+
+        <svg class="leaf-deco" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M45 5 Q70 25 65 55 Q55 75 45 85 Q35 75 25 55 Q20 25 45 5Z" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+            <path d="M45 5 Q45 45 45 85" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+            <path d="M30 30 Q45 38 60 30" stroke="rgba(255,255,255,0.3)" stroke-width="0.6"/>
+            <path d="M27 45 Q45 53 63 45" stroke="rgba(255,255,255,0.3)" stroke-width="0.6"/>
+            <path d="M30 60 Q45 67 60 60" stroke="rgba(255,255,255,0.3)" stroke-width="0.6"/>
+        </svg>
+
+        <div class="image-quote">
+            <p>"Every love story is beautiful,<br>but yours should be wild."</p>
+            <span>— NATURE WEDDINGS</span>
+        </div>
+    </div>
+
+    <div class="login-form-panel" style="position:relative;">
+
+        <svg class="floral-accent" width="180" height="180" viewBox="0 0 180 180" fill="none">
+            <circle cx="90" cy="90" r="70" stroke="#7a8c6e" stroke-width="1"/>
+            <path d="M90 20 Q120 50 110 90 Q100 130 90 160 Q80 130 70 90 Q60 50 90 20Z" stroke="#7a8c6e" stroke-width="1" fill="none"/>
+            <path d="M20 90 Q50 60 90 70 Q130 60 160 90 Q130 120 90 110 Q50 120 20 90Z" stroke="#7a8c6e" stroke-width="1" fill="none"/>
+        </svg>
+
+        <div class="form-inner">
+            <span class="form-label">WELCOME BACK</span>
+            <h1 class="form-title">Sign into<br>your <em>story.</em></h1>
+            <p class="form-subtitle">Access your wedding plans, consultations, and every beautiful detail.</p>
+
+            <div class="divider"></div>
+
+            <form id="loginForm" novalidate>
+
+                <div class="field-group">
+                    <label for="email">EMAIL ADDRESS</label>
+                    <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+                    <span class="error-msg" id="emailError">Please enter a valid email address.</span>
+                </div>
+
+                <div class="field-group">
+                    <label for="password">PASSWORD</label>
+                    <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+                    <span class="error-msg" id="passwordError">Password must be at least 6 characters.</span>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember">
+                        <input type="checkbox" id="remember">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-login"><span>SIGN IN</span></button>
+
+                <div class="success-msg" id="successMsg">
+                    ✦ &nbsp; Welcome back. Redirecting to your dashboard…
+                </div>
+
+            </form>
+
+            <div class="or-divider"><span>OR</span></div>
+
+            <button class="btn-google" type="button">
+                <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
+                    <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z" fill="#34A853"/>
+                    <path d="M3.964 10.707A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.707V4.961H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.039l3.007-2.332z" fill="#FBBC05"/>
+                    <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 6.293C4.672 4.166 6.656 3.58 9 3.58z" fill="#EA4335"/>
+                </svg>
+                Continue with Google
+            </button>
+
+            <p class="signup-prompt">
+                Don't have an account? <a href="#">Begin your journey →</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const form = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+    const successMsg = document.getElementById('successMsg');
+
+    function validateEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let valid = true;
+
+        emailError.style.display = 'none';
+        passwordError.style.display = 'none';
+        successMsg.style.display = 'none';
+
+        if (!validateEmail(emailInput.value.trim())) {
+            emailError.style.display = 'block';
+            valid = false;
+        }
+
+        if (passwordInput.value.length < 6) {
+            passwordError.style.display = 'block';
+            valid = false;
+        }
+
+        if (valid) {
+            successMsg.style.display = 'block';
+            form.reset();
+        }
+    });
+
+    emailInput.addEventListener('blur', function() {
+        emailError.style.display = (!this.value || !validateEmail(this.value.trim())) && this.value ? 'block' : 'none';
+    });
+
+    passwordInput.addEventListener('blur', function() {
+        passwordError.style.display = this.value && this.value.length < 6 ? 'block' : 'none';
+    });
+</script>
+
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
